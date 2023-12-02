@@ -8,7 +8,9 @@ android {
 
     buildFeatures {
         viewBinding = true
+
     }
+
 
     defaultConfig {
         applicationId = "algonquin.cst2335.nguy1041"

@@ -1,5 +1,7 @@
 package algonquin.cst2335.team_project;
 
+import static android.database.sqlite.SQLiteDatabase.openDatabase;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
@@ -104,12 +106,16 @@ public class MainActivity extends AppCompatActivity {
                 CursorAdapter ca = search.getSuggestionsAdapter();
                 Cursor cursor = ca.getCursor();
                 cursor.moveToPosition(position);
-                String clicked_word =  cursor.getString(cursor.getColumnIndex("en_word"));
-                search.setQuery(clicked_word,false);
+                int columnIndex = cursor.getColumnIndex("en_word");
+                if (columnIndex != -1){
+                    String clicked_word = cursor.getString(columnIndex);
+                    search.setQuery(clicked_word,true);
+                } else {
 
-                //search.setQuery("",false);
+                    String clicked_word = cursor.getString(columnIndex);
 
-                search.clearFocus();
+
+                    search.clearFocus();
                 search.setFocusable(false);
 
                 Intent intent = new Intent(MainActivity.this, WordMeaningActivity.class);
@@ -254,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
     {
         search.setQuery("",false);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.Theme_AppCompat_Light_Dialog_Alert);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.MyDialogTheme);
         builder.setTitle("Word Not Found");
         builder.setMessage("Please search again");
 
@@ -287,7 +293,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu_main; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.class.getModifiers(), menu);
         return true;
     }
 
