@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Team_project</string>
+    <string name="app_name">Dictionary</string>
+    <string name="dev_name">Name: Tai Nguyen</string>
+    <string name="dev_number">Student Number: 041086103</string>
 </resources>
