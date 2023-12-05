@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">Dictionary</string>
-    <string name="dev_name">Name: Tai Nguyen</string>
-    <string name="dev_number">Student Number: 041086103</string>
+
+    <string name="dApi_name" translatable="false">Dictionary API</string>
+    <string name="dInstruction" translatable="false">Instructions:</string>
+    <string name="saveBtnText" translatable="false"> Save location </string>
+    <string name="search" translatable="false">Search</string>
+
+    <string name="dHelp" translatable="false">1. Enter a word in the search box and click "Search" to get definitions. \n2. Click "View Saved" to save definition and view the saved definitions.</string>
 </resources>
